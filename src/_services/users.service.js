@@ -16,11 +16,8 @@ function login (username, password) {
     body: JSON.stringify({ username, password })
   }
   console.log('config.API_BASE_URL------', config.API_BASE_URL)
-  // ${config.apiUrl}
-  return fetch(
-    `${config.API_BASE_URL}/users/authenticate`,
-    requestOptions
-  )
+
+  return fetch(`${config.API_BASE_URL}/users/authenticate`, requestOptions)
     .then(handleResponse)
     .then(user => {
       // login successful if there's a user in the response
@@ -45,11 +42,10 @@ function getAll () {
     method: 'GET',
     headers: authHeader()
   }
-  // ${config.apiUrl}
-  return fetch(
-    `${config.API_BASE_URL}/users`,
-    requestOptions
-  ).then(handleResponse)
+
+  return fetch(`${config.API_BASE_URL}/users`, requestOptions).then(
+    handleResponse
+  )
 }
 
 function register (username, password, firstName, lastName, license) {
@@ -59,11 +55,7 @@ function register (username, password, firstName, lastName, license) {
     body: JSON.stringify({ username, password, firstName, lastName, license })
   }
 
-  // ${config.apiUrl}
-  return fetch(
-    `${config.API_BASE_URL}/users/register`,
-    requestOptions
-  )
+  return fetch(`${config.API_BASE_URL}/users/register`, requestOptions)
     .then(handleResponse)
     .then(user => {
       // registration successful if there's...

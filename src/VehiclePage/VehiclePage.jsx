@@ -70,7 +70,7 @@ class VehiclePage extends React.Component {
   render () {
     const { submitted } = this.state
     return (
-      <div className='container col-md-4 float-left'>
+      <div className='container col-md-4'>
         <div className='alert alert-info'>
           Here you may submit any information about your vehicles which will be
           stored in the database.

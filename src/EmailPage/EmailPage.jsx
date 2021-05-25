@@ -7,6 +7,7 @@ class EmailPage extends React.Component {
 
     this.state = {
       user: {}, //added
+      carData: {}, //added
       recipient: '',
       submitted: null,
       loading: false,
@@ -19,7 +20,8 @@ class EmailPage extends React.Component {
 
   componentDidMount () {
     this.setState({
-      user: JSON.parse(localStorage.getItem('user'))
+      user: JSON.parse(localStorage.getItem('user')),
+      carData: JSON.parse(localStorage.getItem('carData'))
     })
   }
 
@@ -49,15 +51,24 @@ class EmailPage extends React.Component {
 
     emailsService.sendEmail(recipient, user.id)
   }
-
+  // lease, seats, year, make, model, trim, specs
   render () {
-    const { recipient, submitted, error } = this.state
+    const { carData, recipient, submitted, error } = this.state
     return (
       <div className='container col-md-4'>
-        <div className='alert alert-info'>
-          In case of any security issues, please check your email security
-          settings to allow less secure apps.
-        </div>
+        Your car data:
+        {carData && (
+          <div className='container col-md-4'>
+            {carData.lease}
+            {carData.seats}
+            {carData.year}
+            {carData.make}
+            {carData.model}
+            {carData.trim}
+            {carData.specs}
+          </div>
+        )}
+        <div className='alert alert-info'>Please enter your email address:</div>
         <h2>Email form</h2>
         <div className='ui segment'>
           <form name='form' onSubmit={this.handleSubmit} className='ui form'>

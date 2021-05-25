@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      name: "React",
+      name: 'React',
       isUserAuthenticated: true
     }
   }
@@ -38,7 +38,8 @@ class App extends React.Component {
               <Route path='/register' component={RegisterPage} />
               <PrivateRoute exact path='/home' component={HomePage} />
               <PrivateRoute exact path='/home' component={VehiclePage} />
-              <PrivateRoute exact path='/home' component={EmailPage} />
+              <PrivateRoute exact path='/email' component={HomePage} />
+              <PrivateRoute exact path='/email' component={EmailPage} />
             </div>
           </Router>
         </div>
