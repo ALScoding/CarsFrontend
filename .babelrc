@@ -1,0 +1,13 @@
+// for npm start
+{
+  "presets": [
+      "react",
+      "env",
+      "stage-0"
+  ]
+}
+
+// for npm test
+// {
+//   "presets": ["@babel/env", "@babel/react"]
+// }
